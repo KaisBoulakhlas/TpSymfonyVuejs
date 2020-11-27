@@ -1,0 +1,23 @@
+body {
+    background-color: lightcyan;
+}
+
+#logo {
+    font-family: 'Comic Sans MS', cursive;
+    font-weight: normal;
+    font-size: 24px;
+    color: white;
+    text-transform: uppercase;
+}
+
+#navbarDropdownMenuLink, #list {
+    color: white;
+}
+
+hr.dotted {
+    border-top: 2px dotted #999;
+}
+
+.card {
+    background: lightcyan;
+}

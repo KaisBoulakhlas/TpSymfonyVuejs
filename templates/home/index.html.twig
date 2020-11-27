@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Leçons{% endblock %}
+{% block body %}
+      {% for type, messages in app.flashes %}
+            {% for message in messages %}
+                  <div class="alert alert-{{ type }}" role="alert">
+                        {{ message }}
+                  </div>
+            {% endfor %}
+      {% endfor %}
+      <div id="app"></div>
+{% endblock %}
