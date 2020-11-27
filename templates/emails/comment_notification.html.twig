@@ -1,0 +1,14 @@
+{% extends '@email/default/notification/body.html.twig' %}
+
+{% block content %}
+    <p>Email : {{ comment.email }}</p>
+    <p>Author: {{ comment.author }}</p>
+    <p>
+        {{ comment.content|nl2br }}
+    </p>
+{% endblock %}
+
+{% block action %}
+    <spacer size="16"></spacer>
+    <button href="{{ url('admin.comment.show', {'id': comment.id}) }}">Voir</button>
+{% endblock %}

@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <div class="container">
+        {{ form_start(form) }}
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                {{ form_row(form.email, {'attr': {'class': 'form-control'}} ) }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                {{ form_row(form.author, {'attr': {'class': 'form-control'}} ) }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                {{ form_row(form.content, {'attr': {'class': 'form-control'}} ) }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                {{ form_row(form.imageFile, {'attr': {'class': 'form-control'}} ) }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            {{ form_widget(form)}}
+                <button class="btn btn-outline-success" style="margin-left:5px;">{{ button|default('Modifier')}}</button>
+                <a href="{{ path('admin.comment.index'  , {id: comment.lesson.id}) }}" class="btn btn-outline-primary" style="margin-left:5px;">Retour</a>
+            {{ form_end(form)}}
+        </div>
+    </div>
+</div>

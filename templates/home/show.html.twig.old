@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Leçon{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <div class="card" style="background-color:lightgray;">
+            <div class="card-body">
+                <div class="card-title"> <h5 style=" font-family: 'Comic Sans MS', cursive;
+                    font-weight: normal;
+                    font-size: 24px;
+                    text-transform: uppercase;">Leçon n° {{ lesson.id }}</h5></div>
+                <hr class="dotted">
+                <p class="card-text"><span style=" font-family: 'Comic Sans MS', cursive;  font-weight: normal;text-transform: uppercase;">Titre</span> : <strong>{{ lesson.title }}</strong></p>
+                <p class="card-text"><span style=" font-family: 'Comic Sans MS', cursive;  font-weight: normal;text-transform: uppercase;">Date de début </span>: <strong>{{ lesson.startAt|date("d/m/Y à H:i", "Europe/Paris")}}</strong></p>
+                <p class="card-text"><span style=" font-family: 'Comic Sans MS', cursive;  font-weight: normal;text-transform: uppercase;">Date de fin</span> : <strong>{{ lesson.endAt|date("d/m/Y à H:i", "Europe/Paris")}}</strong></p>
+            </div>
+        </div>
+        <br>
+        {% include('comment/_indexForm.html.twig') %}
+        <div class="pagination" style="float:right;">
+            {{ knp_pagination_render(comments) }}
+        </div>
+        <br>
+        <hr class="dotted"/>
+        <h5 style=" font-family: 'Comic Sans MS', cursive;
+                    font-weight: normal;
+                    font-size: 24px;
+                    text-transform: uppercase;">Ajouter un commentaire</h5>
+        <hr style="background-color: black;"/>
+
+        <div class="card" style="background-color:lightgray;">
+            <div class="card-body">
+                {{ form_start(form) }}
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        {{ form_row(form.email, {'attr': {'class': 'form-control'}} ) }}
+                    </div>
+                    <div class="form-group col-md-4 ml-3">
+                        {{ form_row(form.author, {'attr': {'class': 'form-control'}} ) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        {{ form_row(form.imageFile, {'attr': {'class': 'form-control'}} ) }}
+                    </div>
+                    <div class="form-group col-md-4 ml-3">
+                        {{ form_row(form.content, {'attr': {'class': 'form-control'}} ) }}
+                    </div>
+                </div>
+                <button class="btn btn-outline-success">{{ button|default('Ajouter')}}</button>
+                {{ form_end(form)}}
+            </div>
+        </div>
+    </div>
+{% endblock %}
